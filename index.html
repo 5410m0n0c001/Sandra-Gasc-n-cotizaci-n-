@@ -61,6 +61,8 @@
             .pricing-section { padding:18px 10px !important; border-radius:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .price-hero { font-size:2rem !important; word-break:break-word !important; }
             .price-hero sup { font-size:1rem !important; }
+            .price-options-grid { flex-direction:column !important; }
+            .price-option-amount { font-size:1.7rem !important; }
             .includes-grid { grid-template-columns:1fr !important; gap:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .include-item, .include-img-container, .include-img, .complemento-card, .publicidad-card, .venue-info-card, .calc-item { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .include-img-container.is-video { min-height:0 !important; width:100% !important; max-width:100% !important; height:auto !important; aspect-ratio:16/9; }
@@ -140,6 +142,13 @@
         .price-hero sup { font-size:1.5rem; color:var(--gold-accent); }
         .price-label { font-size:1rem; color:rgba(255,255,255,.7); margin-bottom:10px; }
         .price-note { margin-top:20px; font-size:.75rem; color:rgba(255,255,255,.4); }
+        .price-options-grid { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:15px 0 10px; }
+        .price-option-card { flex:1 1 220px; max-width:280px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:22px 18px; }
+        .price-option-card.price-option-featured { background:rgba(255,255,255,.08); border-color:var(--gold-accent); }
+        .price-option-badge { display:inline-block; font-size:.62rem; background:var(--gold-accent); color:#fff; padding:2px 8px; border-radius:10px; text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+        .price-option-label { font-size:.85rem; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:4px; }
+        .price-option-amount { font-size:2.2rem; font-weight:700; margin:4px 0; }
+        .price-option-amount sup { font-size:1rem; color:var(--gold-accent); }
         .price-breakdown { text-align:left; margin-top:20px; border-top:1px solid rgba(255,255,255,.12); padding-top:18px; font-size:.85rem; color:rgba(255,255,255,.85); }
         .price-breakdown-row { display:flex; justify-content:space-between; padding:4px 0; }
 
@@ -483,6 +492,10 @@
             .pricing-section h3 { color:var(--gold-accent) !important; font-size:8.5pt !important; margin-bottom:4px !important; text-transform:uppercase; letter-spacing:0.5px; }
             .price-hero { font-size:24pt !important; margin:4px 0 2px !important; color:#fff !important; font-family:'Playfair Display', serif; }
             .price-hero sup { color:var(--gold-accent) !important; font-size:10pt !important; }
+            .price-options-grid { gap:10px !important; margin:8px 0 !important; }
+            .price-option-card { padding:8px 10px !important; }
+            .price-option-amount { font-size:15pt !important; margin:2px 0 !important; }
+            .price-option-label { font-size:7pt !important; }
             .price-label { font-size:8pt !important; color:rgba(255,255,255,.85) !important; margin-bottom:0 !important; }
             .price-note { font-size:6.8pt !important; margin-top:8px !important; color:rgba(255,255,255,.6) !important; }
             .price-breakdown { display:none !important; }
@@ -618,14 +631,6 @@
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
-                        <tr>
-                            <td><img class="tbl-thumb" src="margaritas.webp" alt="Descorche libre" loading="lazy"><strong>Descorche libre</strong></td>
-                            <td>Sin cargo por botella abierta en tu barra.</td>
-                            <td class="align-center">100 Px</td>
-                            <td class="align-right">Incluido</td>
-                            <td class="align-right">Incluido</td>
-                        </tr>
-
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>2 · EQUIPO Y MONTAJE PARA JARDÍN SIN COCINA</strong></td></tr>
                         <tr>
                             <td><img class="tbl-thumb" src="tiempodeservicio.webp" alt="Cocina móvil" loading="lazy"><strong>Cocina móvil y equipo de calentamiento</strong></td>
@@ -657,14 +662,6 @@
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
-                        <tr>
-                            <td><img class="tbl-thumb" src="invitacion_digital.webp" alt="Invitación Digital" loading="lazy"><strong>Invitación Digital Básica</strong></td>
-                            <td>Diseño de catálogo, música, mapa, cuenta regresiva y RSVP por WhatsApp.</td>
-                            <td class="align-center">1</td>
-                            <td class="align-right">Cortesía</td>
-                            <td class="align-right">Cortesía</td>
-                        </tr>
-
                         <tr style="background:var(--primary-dark); color:#fff;">
                             <td><strong>TOTAL DEL PAQUETE BASE</strong></td>
                             <td>Banquete Menú 3 Tiempos para la Boda Civil de Sandra — 100 invitados, todo lo listado arriba incluido. (Ver también la opción de Menú 2 Tiempos en la tabla comparativa más abajo.)</td>
@@ -703,151 +700,6 @@
                 </table>
             </div>
 
-            <!-- ══ CATÁLOGO Y COTIZADOR DINÁMICO DE EXTRAS (VERSIÓN PDF) ══ -->
-            <h3 class="section-title solo-print" style="margin-top:20px;"><i class="fas fa-calculator"></i> Catálogo de Servicios Adicionales &amp; Extras Opcionales</h3>
-            <p class="calc-hint solo-print" style="margin-bottom:10px;">A continuación se detallan las opciones de servicios adicionales que pueden sumarse al paquete base contratado:</p>
-            <div class="pricing-table-container solo-print" style="margin-bottom:20px;">
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Categoría y Servicio Adicional</th>
-                            <th>Especificación / Detalle</th>
-                            <th class="align-right">Inversión Adicional</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaExtrasPrint">
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>MEJORA DE PROTEÍNA EN EL BANQUETE</strong></td></tr>
-                        <tr>
-                            <td><strong>Upgrade a Filete de Res</strong></td>
-                            <td>Para 100 personas ($70 MXN por persona adicional). Confirmado: mismo costo que en la degustación, aplica igual al banquete completo.</td>
-                            <td class="align-right">$7,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Upgrade a Salmón</strong></td>
-                            <td>Para 100 personas ($90 MXN por persona adicional). Confirmado: mismo costo que en la degustación, aplica igual al banquete completo.</td>
-                            <td class="align-right">$9,000.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>PERSONAL DE SERVICIO EXTRA</strong></td></tr>
-                        <tr>
-                            <td><strong>Mesero adicional (8 hrs)</strong></td>
-                            <td>Personal capacitado para atención de mesas.</td>
-                            <td class="align-right">$1,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Capitán de meseros adicional</strong></td>
-                            <td>Supervisión ejecutiva de servicio.</td>
-                            <td class="align-right">$3,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Coordinador general adicional</strong></td>
-                            <td>Coordinación logística durante el evento.</td>
-                            <td class="align-right">$9,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bartender adicional</strong></td>
-                            <td>Atención profesional de barra.</td>
-                            <td class="align-right">$1,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hostess adicional</strong></td>
-                            <td>Recepción y asignación de invitados.</td>
-                            <td class="align-right">$2,000.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>ENTRETENIMIENTO</strong></td></tr>
-                        <tr>
-                            <td><strong>Mariachi Tradicional (1 hr)</strong></td>
-                            <td>Mariachi profesional en vivo.</td>
-                            <td class="align-right">$9,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Banda (1 hr)</strong></td>
-                            <td>Banda musical en vivo para el cierre de la celebración.</td>
-                            <td class="align-right">$14,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Saxofonista (1 hr)</strong></td>
-                            <td>Música de saxofón en vivo durante el banquete.</td>
-                            <td class="align-right">$5,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Show Men Animador (2 hrs)</strong></td>
-                            <td>Animación profesional de pista.</td>
-                            <td class="align-right">$7,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Robot LED (1 hr)</strong></td>
-                            <td>Personaje con iluminación robótica.</td>
-                            <td class="align-right">$5,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cabina 360° (1 hr)</strong></td>
-                            <td>Plataforma giratoria de video.</td>
-                            <td class="align-right">$5,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cabina Inflable de Fotos (2 hrs)</strong></td>
-                            <td>Cabina inflable iluminada para fotos instantáneas.</td>
-                            <td class="align-right">$7,000.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>EFECTOS ESPECIALES Y PIROTECNIA</strong></td></tr>
-                        <tr>
-                            <td><strong>Fuegos Artificiales Tradicionales</strong></td>
-                            <td>Espectáculo de pirotecnia aérea exterior (según bombas y duración).</td>
-                            <td class="align-right">Desde $9,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Set de 4 Chisperos en Frío</strong></td>
-                            <td>Chisperos inalámbricos para pista o escenario.</td>
-                            <td class="align-right">$3,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Detonación Estelar (6 Chisperos)</strong></td>
-                            <td>Set de 6 chisperos inalámbricos de pirotecnia en frío.</td>
-                            <td class="align-right">$4,500.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>REPOSTERÍA Y PASTEL</strong></td></tr>
-                        <tr>
-                            <td><strong>Mesa de Postres &amp; Repostería Fina</strong></td>
-                            <td>Para 100 personas.</td>
-                            <td class="align-right">$5,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pastel de Boda de Autor</strong></td>
-                            <td>Desde, según kilos y pisos.</td>
-                            <td class="align-right">Desde $9,000.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>INVITACIÓN DIGITAL (UPGRADE)</strong></td></tr>
-                        <tr>
-                            <td><strong>Invitación Personalizada</strong></td>
-                            <td>Todo lo de la básica + galería, itinerario, música y video propios.</td>
-                            <td class="align-right">$1,500.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Invitación Deluxe</strong></td>
-                            <td>Todo lo anterior + diseño ampliado.</td>
-                            <td class="align-right">$2,500.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Invitación Premium</strong></td>
-                            <td>Todo lo anterior + diseño a medida, RSVP con formulario y álbum en vivo.</td>
-                            <td class="align-right">$3,000.00 MXN</td>
-                        </tr>
-
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>MOBILIARIO Y MONTAJE</strong></td></tr>
-                        <tr>
-                            <td><strong>Renta de mobiliario y menaje</strong></td>
-                            <td>Mesas, sillas, mantelería, loza y cristalería para 100 invitados — servicio de montajes especiales, se cotiza aparte según lo que ya tengas en tu jardín.</td>
-                            <td class="align-right"><em>Consultar con tu planner</em></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
             <!-- ══ COMPARATIVA DE MENÚS — ambas opciones reales cotizadas a la clienta en el chat ══ -->
             <h3 class="section-title reveal reveal-left"><i class="fas fa-scale-balanced"></i> Compara tus Opciones de Menú</h3>
             <div class="pricing-table-container reveal">
@@ -877,18 +729,30 @@
                 </table>
             </div>
 
-            <!-- ══ INVERSIÓN TOTAL BASE ══ -->
+            <!-- ══ INVERSIÓN TOTAL BASE — ambas opciones de menú ══ -->
             <div class="pricing-section reveal" id="inversionBase">
                 <h3>Su Inversión</h3>
-                <div class="price-hero" id="totalBaseDisplay">$190.00<sup>MXN</sup></div>
-                <div class="price-label">por persona &middot; Menú 3 Tiempos &middot; 100 invitados</div>
-                <div class="price-total-chico">Inversión total del evento: <strong id="totalEventoChico">$19,000.00 MXN</strong></div>
+                <div class="price-options-grid">
+                    <div class="price-option-card">
+                        <div class="price-option-label">Menú 2 Tiempos</div>
+                        <div class="price-option-amount">$150.00<sup>MXN</sup></div>
+                        <div class="price-label">por persona &middot; 100 invitados</div>
+                        <div class="price-total-chico">Total: <strong>$15,000.00 MXN</strong></div>
+                    </div>
+                    <div class="price-option-card price-option-featured">
+                        <div class="price-option-badge">Precio base mostrado</div>
+                        <div class="price-option-label">Menú 3 Tiempos</div>
+                        <div class="price-hero price-option-amount" id="totalBaseDisplay">$190.00<sup>MXN</sup></div>
+                        <div class="price-label">por persona &middot; 100 invitados</div>
+                        <div class="price-total-chico">Inversión total del evento: <strong id="totalEventoChico">$19,000.00 MXN</strong></div>
+                    </div>
+                </div>
                 <div class="price-breakdown" id="desgloseExtras" style="display:none;">
                     <div class="price-breakdown-row"><span>Cotización base</span><span id="totalBaseTexto">$19,000.00</span></div>
                     <ul id="listaExtras" style="list-style:none; margin:6px 0; padding:0;"></ul>
                     <div class="price-breakdown-row" style="border-top:1px solid rgba(255,255,255,.12); margin-top:8px; padding-top:8px; font-weight:700;"><span>Extras seleccionados</span><span id="totalExtrasTexto">$0.00</span></div>
                 </div>
-                <div class="price-note">* Precios netos, sujetos a cambio sin previo aviso. No incluyen IVA. Precio base mostrado: Menú 3 Tiempos ($190/persona). Si prefieres Menú 2 Tiempos ($150/persona, $15,000 total), contáctanos para esa versión.</div>
+                <div class="price-note">* Precios netos, sujetos a cambio sin previo aviso. No incluyen IVA. El desglose de extras de abajo se suma sobre el Menú 3 Tiempos; si eliges Menú 2 Tiempos, contáctanos para ajustar el cálculo de extras a ese total.</div>
             </div>
 
             <h3 class="section-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
@@ -901,7 +765,6 @@
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="banquete_plato_fuerte.webp" alt="Plato fuerte"></div><div class="include-content"><h4><i class="fas fa-drumstick-bite"></i> Segundo Tiempo &middot; Plato Fuerte (2 Opciones 50/50)</h4><p>Dos platillos fuertes diferentes, servidos al 50%/50% entre tus invitados sin costo extra, con guarniciones a elegir.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="postre_degustacion.jpg" alt="Postre"></div><div class="include-content"><h4><i class="fas fa-cookie"></i> Tercer Tiempo &middot; Postre</h4><p>Postre individual para cerrar dulcemente el banquete.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="menu.png" alt="Pan y chiles a libre demanda"></div><div class="include-content"><h4><i class="fas fa-bread-slice"></i> Pan y Chiles a Libre Demanda</h4><p>Al centro de la mesa durante todo el banquete.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Descorche libre"></div><div class="include-content"><h4><i class="fas fa-wine-bottle"></i> Descorche Libre</h4><p>Sin cargo por botella abierta en tu barra.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 2: EQUIPO Y MONTAJE PARA JARDÍN SIN COCINA ═══ -->
@@ -916,7 +779,6 @@
             <div class="gallery-block-title reveal reveal-left">3 &middot; Beneficios al Firmar Contrato</div>
             <div class="includes-grid">
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="banquete_entradas.webp"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas, en tu Jardín <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Pollo o cerdo como proteína base (upgrade a res +$70 o salmón +$90 por persona). Se agenda tras firmar contrato y cubrir el depósito de apartado, 30-45 días antes del evento.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación Digital"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Básica de Cortesía</h4><p>Diseño de catálogo, música, mapa, cuenta regresiva y RSVP por WhatsApp, sin costo al contratar tu banquete.</p></div></div></div>
             </div>
 
 
@@ -939,7 +801,7 @@
                             <img class="complemento-img" src="invitacion_digital.webp" alt="Invitación Digital Premium">
                             <div class="complemento-body">
                                 <h4><i class="fas fa-envelope-open-text"></i> Invitación Digital</h4>
-                                <p>La versión básica es cortesía al contratar tu banquete. Con confirmación de asistencia (RSVP), mapa de ubicación y galería interactiva para tus invitados.</p>
+                                <p>Con confirmación de asistencia (RSVP), mapa de ubicación y galería interactiva para tus invitados. Disponible en Personalizada, Deluxe y Premium.</p>
                                 <a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank">Ver demo interactiva</a>
                             </div>
                         </div>
@@ -1056,7 +918,7 @@
                     <li><strong>Neto sin impuestos:</strong> precios netos; el 16% de IVA aplica solo si se solicita factura fiscal oficial.</li>
                     <li><strong>Validez:</strong> esta cotización mantiene sus costos garantizados por 15 días a partir de su emisión.</li>
                     <li><strong>Plato fuerte:</strong> puedes ofrecer 2 opciones diferentes de plato fuerte al 50%/50% entre tus invitados, sin costo extra.</li>
-                    <li><strong>Pan, chiles y descorche:</strong> pan y chiles a libre demanda durante todo el banquete; descorche libre en la barra, sin cargo por botella abierta.</li>
+                    <li><strong>Pan y chiles:</strong> pan y chiles a libre demanda durante todo el banquete.</li>
                     <li><strong>Degustación:</strong> es cortesía, pero se agenda una vez firmado el contrato y cubierto el depósito de apartado, con 30-45 días de anticipación al evento — para 4 personas, directamente en tu jardín.</li>
                     <li><strong>Hora extra de banquete:</strong> $6,000 MXN.</li>
                     <li><strong>Para confirmar:</strong> se requiere depósito de apartado, confirmación del número final de invitados y elección de menú (2 o 3 tiempos).</li>
