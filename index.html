@@ -61,7 +61,7 @@
             .pricing-section { padding:18px 10px !important; border-radius:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .price-hero { font-size:2rem !important; word-break:break-word !important; }
             .price-hero sup { font-size:1rem !important; }
-            .price-options-grid { flex-direction:column !important; }
+            .price-options-grid { grid-template-columns:1fr !important; max-width:100% !important; }
             .price-option-amount { font-size:1.7rem !important; }
             .includes-grid { grid-template-columns:1fr !important; gap:16px !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
             .include-item, .include-img-container, .include-img, .complemento-card, .publicidad-card, .venue-info-card, .calc-item { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
@@ -142,8 +142,8 @@
         .price-hero sup { font-size:1.5rem; color:var(--gold-accent); }
         .price-label { font-size:1rem; color:rgba(255,255,255,.7); margin-bottom:10px; }
         .price-note { margin-top:20px; font-size:.75rem; color:rgba(255,255,255,.4); }
-        .price-options-grid { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:15px 0 10px; }
-        .price-option-card { flex:1 1 220px; max-width:280px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:22px 18px; }
+        .price-options-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:15px auto 10px; max-width:600px; align-items:start; }
+        .price-option-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:22px 18px; }
         .price-option-card.price-option-featured { background:rgba(255,255,255,.08); border-color:var(--gold-accent); }
         .price-option-badge { display:inline-block; font-size:.62rem; background:var(--gold-accent); color:#fff; padding:2px 8px; border-radius:10px; text-transform:uppercase; font-weight:700; margin-bottom:8px; }
         .price-option-label { font-size:.85rem; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:4px; }
@@ -423,7 +423,7 @@
             .kit-section, .cta-container, audio, .audio-toggle,
             .slides-section, .video-section, .visor, .lectura-barra, .expo-section, .publicidad-section, .signature-section, .complementos-section,
             .includes-grid, .gallery-block-title, .calc-total-box, .calc-hint,
-            .venue-info-grid, .venue-logo-wrap, footer, header, .calc-section { display:none !important; }
+            .venue-info-grid, .venue-logo-wrap, footer, header, .calc-section, .includes-title { display:none !important; }
 
             .solo-print { display:block !important; }
             .solo-print .tbl-thumb, .solo-print .tbl-thumb-pend { display:none !important; }
@@ -468,13 +468,14 @@
             .section-title i { color:var(--gold-accent) !important; font-size:9.5pt !important; margin-right:4px; }
             
             /* Tablas desaturadas y espaciosas */
-            .pricing-table-container { border:1px solid #E2D9D0 !important; border-radius:8px !important; margin-bottom:16px !important; overflow:visible !important; page-break-inside:avoid !important; break-inside:avoid !important; }
+            .pricing-table-container { border:1px solid #E2D9D0 !important; border-radius:8px !important; margin-bottom:16px !important; overflow:visible !important; page-break-inside:auto !important; break-inside:auto !important; }
             .pricing-table { font-size:8pt !important; line-height:1.35 !important; width:100% !important; border-collapse:collapse !important; }
             .pricing-table th { background:var(--primary-dark) !important; color:#fff !important; padding:7px 10px !important; font-size:7.2pt !important; letter-spacing:.5px !important; text-transform:uppercase; }
             .pricing-table td { padding:5px 10px !important; border-bottom:1px solid #ECE6E0 !important; vertical-align:middle !important; }
             .pricing-table tr { page-break-inside:avoid !important; break-inside:avoid !important; }
             .pricing-table tr:nth-child(even) { background:rgba(246,92,122,.02) !important; }
             .pricing-table tr[style*="soft-pink"] td { background:#FAF2ED !important; color:var(--primary-dark) !important; font-weight:700 !important; padding:6px 10px !important; font-size:8pt !important; letter-spacing:0.4px; }
+            .pricing-table tr[style*="primary-dark"] td { background:var(--primary-dark) !important; color:#fff !important; font-weight:700 !important; padding:7px 10px !important; font-size:8.2pt !important; }
             .col-unit, th.col-unit { display:none !important; }
 
             .col-concept { width:28% !important; }
@@ -732,7 +733,7 @@
                 <div class="price-note">* Precios netos, sujetos a cambio sin previo aviso. No incluyen IVA. El desglose de extras de abajo se suma sobre el Menú 3 Tiempos; si eliges Menú 2 Tiempos, contáctanos para ajustar el cálculo de extras a ese total.</div>
             </div>
 
-            <h3 class="section-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
+            <h3 class="section-title includes-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
             <p class="calc-hint">Cada elemento del banquete, con su imagen de referencia. Así se ve exactamente lo que van a recibir el día del evento.</p>
 
             <!-- ═══ BLOQUE 1: BANQUETE MENÚ 3 TIEMPOS ═══ -->
