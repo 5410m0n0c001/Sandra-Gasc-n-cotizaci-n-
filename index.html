@@ -430,6 +430,10 @@
 
             * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; box-sizing:border-box !important; }
 
+            /* La animación de aparición al hacer scroll (.reveal) nunca se activa al imprimir,
+               dejando secciones enteras invisibles (opacity:0). Se fuerza su estado final. */
+            .reveal, .reveal-left, .reveal-right, .reveal-zoom { opacity:1 !important; transform:none !important; transition:none !important; }
+
             @page {
                 size: letter portrait;
                 margin: 1.2cm 1.4cm;
