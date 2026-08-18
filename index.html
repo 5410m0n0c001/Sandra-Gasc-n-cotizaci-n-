@@ -428,6 +428,11 @@
             .solo-print { display:block !important; }
             .solo-print .tbl-thumb, .solo-print .tbl-thumb-pend { display:none !important; }
 
+            /* position:fixed se repite en TODAS las hojas al imprimir (a diferencia de un
+               bloque normal, que solo aparece una vez donde cae en el flujo). Así la leyenda
+               de derechos de autor sale en cada página, no solo en la última. */
+            .copyright-fixed { position:fixed !important; left:0; right:0; bottom:0.15cm; text-align:center; font-size:6.3pt !important; color:var(--gray-text) !important; }
+
             * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; box-sizing:border-box !important; }
 
             /* La animación de aparición al hacer scroll (.reveal) nunca se activa al imprimir,
@@ -515,6 +520,7 @@
     </style>
 </head>
 <body>
+    <div class="copyright-fixed solo-print">&copy; 2026 Primavera Events Group&reg;. Todos los derechos reservados.</div>
     <div class="lectura-barra"></div>
 
     <!-- ══════════════════════════════════════════════════════════════
@@ -936,8 +942,7 @@
             <div class="print-footer solo-print" style="display:flex; align-items:center; justify-content:space-between;">
                 <div>
                     <strong>Primavera Events Group<sup>&reg;</sup></strong> &middot; Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Mor.<br>
-                    Tel / WhatsApp: +52 777 458 7923 &middot; primaveraeventsgroup.com<br>
-                    <span style="font-size:6.5pt; color:var(--gray-text);">&copy; 2026 Primavera Events Group&reg;. Todos los derechos reservados.</span>
+                    Tel / WhatsApp: +52 777 458 7923 &middot; primaveraeventsgroup.com
                 </div>
                 <div class="qr-print-box" style="margin-left:auto;">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://5410m0n0c001.github.io/Sandra-Gasc-n-cotizaci-n-/" alt="Código QR Versión Web" class="qr-img" style="width:42px; height:42px;">
