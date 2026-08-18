@@ -431,7 +431,7 @@
             /* position:fixed se repite en TODAS las hojas al imprimir (a diferencia de un
                bloque normal, que solo aparece una vez donde cae en el flujo). Así la leyenda
                de derechos de autor sale en cada página, no solo en la última. */
-            .copyright-fixed { position:fixed !important; left:0; right:0; bottom:0.15cm; text-align:center; font-size:6.3pt !important; color:var(--gray-text) !important; }
+            .copyright-fixed { position:fixed !important; left:0; right:0; bottom:0.15cm; text-align:center; font-size:6.3pt !important; color:var(--gray-text) !important; z-index:99999 !important; background:#fff !important; padding:2px 0 !important; }
 
             * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; box-sizing:border-box !important; }
 
